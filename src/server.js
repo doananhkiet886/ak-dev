@@ -1,10 +1,12 @@
-require('dotenv').config()
 const express = require('express')
+
 const route = require('./routes')
+const { APP_HOST, APP_PORT } = require('./config/environment')
+const db = require('./config/mongodb')
 
 const app = express()
 
-const { APP_HOST, APP_PORT } = process.env
+db.connect()
 
 route(app)
 
