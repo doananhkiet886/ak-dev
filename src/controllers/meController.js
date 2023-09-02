@@ -5,7 +5,7 @@ const moment = require('moment')
 const store = async (req, res) => {
   try {
     const courses = await Course.find()
-    res.render('./courses/store', { courses, moment })
+    res.render('./me/store/courses', { courses, moment })
   } catch (error) {
     res.status(500).json({
       message: 'Error Server'

@@ -1,0 +1,67 @@
+<div class="heading d-flex justify-content-between">
+  <h2 class="">My Courses</h2>
+  <div class="btn-wrap">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-new-course-modal" data-bs-whatever="@getbootstrap">Add new course</button>
+  </div>
+</div>
+  
+<table class="table table-striped table-bordered mt-4">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Image ID</th>
+      <th scope="col">Video ID</th>
+      <th scope="col">Create At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for(let i = 0; i < courses.length; i++) { %>
+      <% const course = courses[i] %>
+      <tr>
+        <th scope="row"><%= i + 1 %></th>
+        <td><%=  course._id %></td>
+        <td><%= course.name %></td>
+        <td><%= course.imageId %></td>
+        <td><%= course.videoId %></td>
+        <td><%= moment(course.createdAt).format('YYYY/MM/DD hh:mm:ss A')  %></td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<div class="modal fade" id="add-new-course-modal" tabindex="-1" aria-labelledby="headingModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="headingModalLabel">Add New Course</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="name" class="col-form-label">Name</label>
+            <input type="text" class="form-control" id="name">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="col-form-label">Description</label>
+            <textarea class="form-control" id="description"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="videoId" class="col-form-label">Video ID</label>
+            <input type="text" class="form-control" id="videoId">
+          </div>
+          <div class="mb-3">
+            <label for="imageId" class="col-form-label">Image ID (Default: generate from video ID)</label>
+            <input type="text" class="form-control" id="imageId">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
