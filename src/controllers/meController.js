@@ -13,6 +13,20 @@ const store = async (req, res) => {
   }
 }
 
+// [POST] /me/store/courses/create
+const createCourse = async (req, res) => {
+  try {
+    const course = req.body
+    Course.create(course)
+    res.redirect('/me/store/courses')
+  } catch (error) {
+    res.status(500).json({
+      message: 'Error Server'
+    })
+  }
+}
+
 module.exports = {
-  store
+  store,
+  createCourse
 }

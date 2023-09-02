@@ -39,28 +39,28 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form method="POST" action="/me/store/courses/create">
           <div class="mb-3">
             <label for="name" class="col-form-label">Name</label>
-            <input type="text" class="form-control" id="name">
+            <input type="text" class="form-control" id="name" name="name">
           </div>
           <div class="mb-3">
             <label for="description" class="col-form-label">Description</label>
-            <textarea class="form-control" id="description"></textarea>
+            <textarea class="form-control" id="description" name="description"></textarea>
           </div>
           <div class="mb-3">
             <label for="videoId" class="col-form-label">Video ID</label>
-            <input type="text" class="form-control" id="videoId">
+            <input type="text" class="form-control" id="videoId" name="videoId">
           </div>
           <div class="mb-3">
             <label for="imageId" class="col-form-label">Image ID (Default: generate from video ID)</label>
-            <input type="text" class="form-control" id="imageId">
+            <input type="text" class="form-control" id="imageId" name="imageId">
+          </div>
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary ms-3">Add</button>
           </div>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Add</button>
       </div>
     </div>
   </div>

@@ -12,6 +12,9 @@ db.connect()
 
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+
 // template engine
 app.use(expressLayouts)
 app.set('view engine', 'ejs')
