@@ -1,7 +1,7 @@
-const btnRemove = document.querySelector('.btn-remove')
+const btnEdit = document.querySelector('.btn-edit')
 const editCourseForm = document.forms['editCourse']
 
-btnRemove.onclick = async function(event) {
+btnEdit.onclick = async function(event) {
   const nameInput = editCourseForm.querySelector('input[name="name"]')
   const descriptionTextArea = editCourseForm.querySelector('textarea[name="description"]')
   const videoIdInput = editCourseForm.querySelector('input[name="videoId"]')

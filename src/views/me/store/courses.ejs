@@ -28,7 +28,7 @@
         <td><%= course.videoId %></td>
         <td><%= moment(course.createdAt).format('YYYY/MM/DD hh:mm:ss A')  %></td>
         <td>
-          <button type="button" class="btn-remove btn btn-dark" data-id="<%=  course._id %>" data-bs-toggle="modal" data-bs-target="#edit-course-modal">Edit</button>
+          <button type="button" class="btn-edit btn btn-dark" data-id="<%=  course._id %>" data-bs-toggle="modal" data-bs-target="#edit-course-modal">Edit</button>
         </td>
       </tr>
     <% } %>
