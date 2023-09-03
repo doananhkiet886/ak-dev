@@ -11,8 +11,8 @@
       <th scope="col">#</th>
       <th scope="col">ID</th>
       <th scope="col">Name</th>
-      <th scope="col">Image ID</th>
       <th scope="col">Video ID</th>
+      <th scope="col">Image ID</th>
       <th scope="col">Create At</th>
       <th scope="col"></th>
     </tr>
@@ -24,10 +24,10 @@
         <th scope="row"><%= i + 1 %></th>
         <td><%=  course._id %></td>
         <td><%= course.name %></td>
-        <td><%= course.imageId %></td>
         <td><%= course.videoId %></td>
+        <td><%= course.imageId %></td>
         <td><%= moment(course.createdAt).format('YYYY/MM/DD hh:mm:ss A')  %></td>
-        <td>
+        <td class="text-center">
           <button type="button" class="btn-edit btn btn-dark" data-id="<%=  course._id %>" data-bs-toggle="modal" data-bs-target="#edit-course-modal">Edit</button>
           <button type="button" class="btn-remove btn btn-dark" data-id="<%=  course._id %>" data-bs-toggle="modal" data-bs-target="#confirm-edit-modal">Remove</button>
         </td>
