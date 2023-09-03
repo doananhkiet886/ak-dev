@@ -1,8 +1,7 @@
 <div class="heading d-flex justify-content-between">
   <h2 class="">My Courses</h2>
   <div class="btn-wrap">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-new-course-modal">Add new course</button>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-course-modal">Edit course</button>
+    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#add-new-course-modal">Add new course</button>
   </div>
 </div>
   
@@ -15,6 +14,7 @@
       <th scope="col">Image ID</th>
       <th scope="col">Video ID</th>
       <th scope="col">Create At</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -27,6 +27,9 @@
         <td><%= course.imageId %></td>
         <td><%= course.videoId %></td>
         <td><%= moment(course.createdAt).format('YYYY/MM/DD hh:mm:ss A')  %></td>
+        <td>
+          <button type="button" class="btn-remove btn btn-dark" data-id="<%=  course._id %>" data-bs-toggle="modal" data-bs-target="#edit-course-modal">Edit</button>
+        </td>
       </tr>
     <% } %>
   </tbody>
@@ -34,3 +37,5 @@
 
 <%- include('./addNewCourseModal.ejs') %>
 <%- include('./editCourseModal.ejs') %>
+
+<script src="/js/editCourse.js"></script>

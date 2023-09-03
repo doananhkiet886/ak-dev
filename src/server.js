@@ -1,6 +1,7 @@
 const express = require('express')
 const expressLayouts = require('express-ejs-layouts')
 const path = require('path')
+const methodOverride = require('method-override')
 
 const { APP_HOST, APP_PORT } = require('./config/environment')
 const route = require('./routes')
@@ -14,6 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(methodOverride('_method'))
 
 // template engine
 app.use(expressLayouts)
