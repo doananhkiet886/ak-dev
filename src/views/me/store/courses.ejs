@@ -29,6 +29,7 @@
         <td><%= moment(course.createdAt).format('YYYY/MM/DD hh:mm:ss A')  %></td>
         <td>
           <button type="button" class="btn-edit btn btn-dark" data-id="<%=  course._id %>" data-bs-toggle="modal" data-bs-target="#edit-course-modal">Edit</button>
+          <button type="button" class="btn-remove btn btn-dark" data-id="<%=  course._id %>" data-bs-toggle="modal" data-bs-target="#confirm-edit-modal">Remove</button>
         </td>
       </tr>
     <% } %>
@@ -37,5 +38,7 @@
 
 <%- include('./addNewCourseModal.ejs') %>
 <%- include('./editCourseModal.ejs') %>
+<%- include('./confirmRemoveModal.ejs') %>
 
 <script src="/js/editCourse.js"></script>
+<script src="/js/removeCourse.js"></script>

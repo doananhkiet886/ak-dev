@@ -76,9 +76,19 @@ const editCourse = async (req, res) => {
   }
 }
 
+const deleteCourse = async (req, res) => {
+  try {
+    await Course.delete({ _id: req.params.id })
+    res.redirect('/me/store/courses')
+  } catch (error) {
+    res.redirect('/me/store/courses')
+  }
+}
+
 module.exports = {
   store,
   getCourseById,
   createCourse,
-  editCourse
+  editCourse,
+  deleteCourse
 }
