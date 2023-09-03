@@ -1,7 +1,7 @@
 const Course = require('~/models/courseModel')
 const moment = require('moment')
 
-// [GET] /me/store
+// [GET] /me/store/courses
 const store = async (req, res) => {
   try {
     const courses = await Course.find()
@@ -33,9 +33,15 @@ const getCourseById = async (req, res) => {
 
 // [POST] /me/store/courses/create
 const createCourse = async (req, res) => {
+  const newCourse = req.body
+
+  // default when imageId is empty
+  if (!newCourse.imageId) {
+    newCourse.imageId = newCourse.videoId
+  }
+
   try {
-    const course = req.body
-    Course.create(course)
+    Course.create(newCourse)
     res.redirect('/me/store/courses')
   } catch (error) {
     res.status(500).json({
