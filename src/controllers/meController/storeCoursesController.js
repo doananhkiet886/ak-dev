@@ -5,7 +5,8 @@ const moment = require('moment')
 const store = async (req, res) => {
   const searchValue = req.query.search
   const searchNameRegex = new RegExp(searchValue, 'giu')
-  let courses
+  let courses = []
+  
   try {
     if (searchValue) {
       courses = await Course.find({

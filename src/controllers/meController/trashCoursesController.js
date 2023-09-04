@@ -3,8 +3,19 @@ const moment = require('moment')
 
 // [GET] /me/trash/courses
 const trashCourses = async (req, res) => {
+  const searchValue = req.query.search
+  const searchNameRegex = new RegExp(searchValue, 'giu')
+  let courses = []
+
   try {
-    const courses = await Course.findWithDeleted({ deleted: true })
+    if (searchValue) {
+      courses = await Course.findWithDeleted({
+        name: searchNameRegex,
+        deleted: true
+      })
+    } else {
+      courses = await Course.findWithDeleted({ deleted: true })
+    }
     res.render('./me/trash/courses', { courses, moment })
   } catch (error) {
     res.status(500).json({

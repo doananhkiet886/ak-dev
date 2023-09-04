@@ -8,13 +8,18 @@
   </div>
 </div>
 
-<div class="dashboard mt-3">
+<div class="dashboard mt-3 d-flex align-items-center">
   <button type="button" class="btn-remove-by-select btn btn-dark disabled">
     Remove 
   </button>
+
+  <div class="search-wrap ms-5">
+    <input type="text" class="input-search form-control shadow-none" placeholder="Enter course name">
+    <a class="btn-search btn btn-dark ms-2" href="/me/trash/courses">Search</a>
+  </div>
 </div>
   
-<table class="table table-striped table-bordered mt-4">
+<table class="table table-striped table-bordered mt-3">
   <thead class="table-dark">
     <tr>
       <th scope="col">
@@ -63,4 +68,5 @@
 <script src="/js/me/trash/courses/restore.js"></script>
 <script src="/js/me/trash/courses/force.js"></script>
 <script src="/js/me/handleCheckboxCourse.js"></script>
+<script src="/js/me/handleSearchCourse.js"></script>
 <script src="/js/me/trash/courses/forceBySelect.js"></script>
