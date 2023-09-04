@@ -86,10 +86,26 @@ const deleteCourse = async (req, res) => {
   }
 }
 
+// [DELETE] /me/store/courses/remove-by-select
+const removeCoursesBySelect = async (req, res) => {
+  const ids = req.body
+  try {
+    await Course.delete({
+      _id: {
+        $in: ids
+      }
+    })
+    res.redirect('back')
+  } catch (error) {
+    res.redirect('back')
+  }
+}
+
 module.exports = {
   store,
   getCourseById,
   createCourse,
   editCourse,
-  deleteCourse
+  deleteCourse,
+  removeCoursesBySelect
 }
