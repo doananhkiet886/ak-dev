@@ -3,8 +3,18 @@ const moment = require('moment')
 
 // [GET] /me/store/courses
 const store = async (req, res) => {
+  const searchValue = req.query.search
+  const searchNameRegex = new RegExp(searchValue, 'giu')
+  let courses
   try {
-    const courses = await Course.find()
+    if (searchValue) {
+      courses = await Course.find({
+        name: searchNameRegex
+      })
+    } else {
+      courses = await Course.find()
+    }
+
     res.render('./me/store/courses', { courses, moment })
   } catch (error) {
     res.status(500).json({
