@@ -8,6 +8,8 @@
   if (searchedValue) {
     inputSearchElement.value = searchedValue
     btnSearchElement.classList.remove('disabled')
+  } else {
+    btnSearchElement.classList.add('disabled')
   }
 
   // disable btnSearch when empty input and searched yet
