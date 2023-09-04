@@ -48,7 +48,7 @@ const forceCourse = async (req, res) => {
   }
 }
 
-// [DELETE] /me/store/courses/force-by-select
+// [DELETE] /me/trash/courses/force-by-select
 const forceCoursesBySelect = async (req, res) => {
   const ids = req.body
   try {
@@ -62,9 +62,26 @@ const forceCoursesBySelect = async (req, res) => {
     res.redirect('back')
   }
 }
+
+// [POST] /me/trash/courses/restore-by-select
+const restoreCourseBySelect = async (req, res) => {
+  const ids = req.body 
+  try {
+    await Course.restore({
+      _id: {
+        $in: ids
+      }
+    })
+    res.redirect('back')
+  } catch (error) {
+    res.redirect('back')
+  }
+}
+
 module.exports = {
   trashCourses,
   restoreCourse,
   forceCourse,
-  forceCoursesBySelect
+  forceCoursesBySelect,
+  restoreCourseBySelect
 }

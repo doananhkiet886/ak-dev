@@ -8,6 +8,7 @@ router.get('/store/courses/:id', meController.getCourseById)
 
 router.post('/store/courses/create', meController.createCourse)
 router.post('/trash/courses/restore/:id', meController.restoreCourse)
+router.post('/trash/courses/restore-by-select', meController.restoreCourseBySelect)
 
 router.put('/store/courses/edit/:id', meController.editCourse)
 

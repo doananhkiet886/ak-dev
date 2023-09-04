@@ -1,15 +1,27 @@
 const checkAllElement = document.querySelector('.checkAll')
 const checkElements = document.querySelectorAll('input[name="check"]')
-const btnRemoveBySelect = document.querySelector('.btn-remove-by-select')
+const btnBySelects = document.querySelectorAll('.btn-by-select')
+
+btnBySelects.removeClass = function(className = '') {
+  this.forEach(btnBySelect => {
+    btnBySelect.classList.remove(className)
+  })
+}
+
+btnBySelects.addClass = function(className = '') {
+  this.forEach(btnBySelect => {
+    btnBySelect.classList.add(className)
+  })
+}
 
 // check all
 checkAllElement.onclick = () => {
   let isChecked = checkAllElement.checked
 
   if (isChecked) {
-    btnRemoveBySelect.classList.remove('disabled')
+    btnBySelects.removeClass('disabled')
   } else {
-    btnRemoveBySelect.classList.add('disabled')
+    btnBySelects.addClass('disabled')
   }
 
   checkElements.forEach(checkElement => {
@@ -24,13 +36,12 @@ checkElements.forEach(checkElement => {
     const hasChecked = checkedElements.length !== 0
     
     if (hasChecked) {
-      btnRemoveBySelect.classList.remove('disabled')
+      btnBySelects.removeClass('disabled')
     } else {
-      btnRemoveBySelect.classList.add('disabled')
+      btnBySelects.addClass('disabled')
     }
 
     let isCheckFull = checkedElements.length === checkElements.length
     checkAllElement.checked = isCheckFull
   }
 })
-
