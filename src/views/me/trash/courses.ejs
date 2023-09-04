@@ -9,15 +9,20 @@
 </div>
 
 <div class="dashboard mt-3 d-flex align-items-center">
-  <button type="button" class="btn-by-select btn-remove-by-select btn btn-dark disabled">
-    Remove
+  <button 
+    type="button"
+    class="btn-by-select btn-remove-by-select btn btn-dark disabled"
+    data-bs-toggle="modal"
+    data-bs-target="#confirm-force-by-select-modal"
+  >
+    Delete
   </button>
 
   <button type="button" class="btn-by-select btn-restore-by-select ms-3 btn btn-dark disabled">
     Restore
   </button>
 
-  <div class="search-wrap ms-5">
+  <div class="search-wrap ms-auto">
     <input type="text" class="input-search form-control shadow-none" placeholder="Enter course name">
     <a class="btn-search btn btn-dark ms-2" href="/me/trash/courses">Search</a>
   </div>
@@ -41,7 +46,7 @@
   <tbody>
     <% if (courses.length === 0) { %>
         <tr>
-          <td class="text-center" colspan="7">--- Empty Trash ---</td>
+          <td class="text-center" colspan="8">--- Empty Trash ---</td>
         </tr>
     <% } else { %>
       <% for(let i = 0; i < courses.length; i++) { %>
@@ -68,6 +73,7 @@
 </table>
 
 <%- include('./confirmDeleteModal.ejs') %>
+<%- include('./confirmForceBySelectModal.ejs') %>
 
 <script src="/js/me/trash/courses/restore.js"></script>
 <script src="/js/me/trash/courses/force.js"></script>

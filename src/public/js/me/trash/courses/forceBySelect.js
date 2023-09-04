@@ -1,7 +1,7 @@
 (() => {
-  const btnRemoveBySelect = document.querySelector('.btn-remove-by-select')
+  const btnConfirmForceBySelectElement = document.querySelector('.btn-confirm-force-by-select')
 
-  btnRemoveBySelect.onclick = async () => {
+  btnConfirmForceBySelectElement.onclick = async () => {
     const checkedElements = document.querySelectorAll('input[name="check"]:checked')
     let ids = Array.from(checkedElements).map(checkedElement => {
       return checkedElement.dataset.id

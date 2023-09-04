@@ -17,7 +17,7 @@
     Remove 
   </button>
 
-  <div class="search-wrap ms-5">
+  <div class="search-wrap ms-auto">
     <input type="text" class="input-search form-control shadow-none" placeholder="Enter course name">
     <a class="btn-search btn btn-dark ms-2" href="/me/store/courses">Search</a>
   </div>
@@ -41,7 +41,7 @@
   <tbody>
     <% if (courses.length === 0) { %>
       <tr>
-        <td class="text-center" colspan="7">
+        <td class="text-center" colspan="8">
           There are no courses yet. Let's
           <span style="cursor: pointer;" class="text-primary" data-bs-toggle="modal" data-bs-target="#add-new-course-modal">add new course </span>
         </td>
