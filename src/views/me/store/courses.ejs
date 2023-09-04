@@ -1,8 +1,14 @@
 <div class="heading d-flex justify-content-between">
   <h2 class="">My Courses</h2>
   <div class="btn-wrap">
-    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#add-new-course-modal">Add new course</button>
-    <a class="btn btn-dark" href="/me/trash/courses">Trash</a>
+    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#add-new-course-modal">
+      <i class="me-1  fa-solid fa-plus"></i>
+      Add new course
+    </button>
+    <a class="btn btn-dark" href="/me/trash/courses">
+      <i class="me-1 fa-solid fa-trash"></i>
+      Trash
+    </a>
   </div>
 </div>
   
@@ -19,20 +25,29 @@
     </tr>
   </thead>
   <tbody>
-    <% for(let i = 0; i < courses.length; i++) { %>
-      <% const course = courses[i] %>
+    <% if (courses.length === 0) { %>
       <tr>
-        <th scope="row"><%= i + 1 %></th>
-        <td><%=  course._id %></td>
-        <td><%= course.name %></td>
-        <td><%= course.videoId %></td>
-        <td><%= course.imageId %></td>
-        <td><%= moment(course.createdAt).format('YYYY/MM/DD hh:mm:ss A')  %></td>
-        <td class="text-center">
-          <button type="button" class="btn-edit btn btn-dark" data-id="<%=  course._id %>" data-bs-toggle="modal" data-bs-target="#edit-course-modal">Edit</button>
-          <button type="button" class="btn-remove btn btn-dark" data-id="<%=  course._id %>" data-bs-toggle="modal" data-bs-target="#confirm-edit-modal">Remove</button>
+        <td class="text-center" colspan="7">
+          There are no courses yet. Let's
+          <span style="cursor: pointer;" class="text-primary" data-bs-toggle="modal" data-bs-target="#add-new-course-modal">add new course </span>
         </td>
       </tr>
+    <% } else { %>
+      <% for(let i = 0; i < courses.length; i++) { %>
+        <% const course = courses[i] %>
+        <tr>
+          <th scope="row"><%= i + 1 %></th>
+          <td><%=  course._id %></td>
+          <td><%= course.name %></td>
+          <td><%= course.videoId %></td>
+          <td><%= course.imageId %></td>
+          <td><%= moment(course.createdAt).format('YYYY/MM/DD hh:mm:ss A')  %></td>
+          <td class="text-center">
+            <button type="button" class="btn-edit btn btn-dark" data-id="<%=  course._id %>" data-bs-toggle="modal" data-bs-target="#edit-course-modal">Edit</button>
+            <button type="button" class="btn-remove btn btn-dark" data-id="<%=  course._id %>" data-bs-toggle="modal" data-bs-target="#confirm-edit-modal">Remove</button>
+          </td>
+        </tr>
+      <% } %>
     <% } %>
   </tbody>
 </table>

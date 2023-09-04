@@ -1,7 +1,10 @@
 <div class="heading d-flex justify-content-between">
   <h2 class="">Course Trash</h2>
   <div class="btn-wrap">
-    <a class="btn btn-dark" href="/me/store/courses">My Courses</a>
+    <a class="btn btn-dark" href="/me/store/courses">
+      <i class="me-1 fa-solid fa-user-graduate fa-lg"></i>
+      My Courses
+    </a>
   </div>
 </div>
   
@@ -18,21 +21,28 @@
     </tr>
   </thead>
   <tbody>
-    <% for(let i = 0; i < courses.length; i++) { %>
-      <% const course = courses[i] %>
-      <tr>
-        <th scope="row"><%= i + 1 %></th>
-        <td><%=  course._id %></td>
-        <td><%= course.name %></td>
-        <td><%= course.videoId %></td>
-        <td><%= course.imageId %></td>
-        <td><%= moment(course.deletedAt).format('YYYY/MM/DD hh:mm:ss A')  %></td>
-        <td class="text-center">
-          <button type="button" class="btn-restore btn btn-dark" data-id="<%=  course._id %>">Restore</button>
-          <button type="button" class="btn-delete btn btn-dark" data-id="<%=  course._id %>" data-bs-toggle="modal" data-bs-target="#confirm-delete-modal">Delete</button>
-        </td>
-      </tr>
+    <% if (courses.length === 0) { %>
+        <tr>
+          <td class="text-center" colspan="7">--- Empty Trash ---</td>
+        </tr>
+    <% } else { %>
+      <% for(let i = 0; i < courses.length; i++) { %>
+        <% const course = courses[i] %>
+        <tr>
+          <th scope="row"><%= i + 1 %></th>
+          <td><%=  course._id %></td>
+          <td><%= course.name %></td>
+          <td><%= course.videoId %></td>
+          <td><%= course.imageId %></td>
+          <td><%= moment(course.deletedAt).format('YYYY/MM/DD hh:mm:ss A')  %></td>
+          <td class="text-center">
+            <button type="button" class="btn-restore btn btn-dark" data-id="<%=  course._id %>">Restore</button>
+            <button type="button" class="btn-delete btn btn-dark" data-id="<%=  course._id %>" data-bs-toggle="modal" data-bs-target="#confirm-delete-modal">Delete</button>
+          </td>
+        </tr>
+      <% } %>
     <% } %>
+
   </tbody>
 </table>
 
