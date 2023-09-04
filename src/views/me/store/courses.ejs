@@ -27,7 +27,9 @@
   <thead class="table-dark">
     <tr>
       <th scope="col">
-        <input type="checkbox" class="checkAll">
+        <% if (courses.length !== 0) { %> 
+          <input type="checkbox" class="checkAll">
+        <% } %>
       </th>
       <th scope="col">#</th>
       <th scope="col">ID</th>
