@@ -14,5 +14,5 @@ router.put('/store/courses/edit/:id', meController.editCourse)
 router.delete('/store/courses/delete/:id', meController.deleteCourse)
 router.delete('/trash/courses/force/:id', meController.forceCourse)
 router.delete('/store/courses/remove-by-select', meController.removeCoursesBySelect)
-
+router.delete('/store/courses/force-by-select', meController.forceCoursesBySelect)
 module.exports = router

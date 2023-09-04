@@ -1,6 +1,6 @@
 const checkAllElement = document.querySelector('.checkAll')
 const checkElements = document.querySelectorAll('input[name="check"]')
-const btnRemoveBySelect = document.querySelector('.btn-remove-by-selection')
+const btnRemoveBySelect = document.querySelector('.btn-remove-by-select')
 
 // check all
 checkAllElement.onclick = () => {

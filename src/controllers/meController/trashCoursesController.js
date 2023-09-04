@@ -37,8 +37,23 @@ const forceCourse = async (req, res) => {
   }
 }
 
+// [DELETE] /me/store/courses/force-by-select
+const forceCoursesBySelect = async (req, res) => {
+  const ids = req.body
+  try {
+    await Course.deleteMany({
+      _id: {
+        $in: ids
+      }
+    })
+    res.redirect('back')
+  } catch (error) {
+    res.redirect('back')
+  }
+}
 module.exports = {
   trashCourses,
   restoreCourse,
-  forceCourse
+  forceCourse,
+  forceCoursesBySelect
 }

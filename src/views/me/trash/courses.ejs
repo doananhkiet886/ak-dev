@@ -7,10 +7,19 @@
     </a>
   </div>
 </div>
+
+<div class="dashboard mt-3">
+  <button type="button" class="btn-remove-by-select btn btn-dark disabled">
+    Remove 
+  </button>
+</div>
   
 <table class="table table-striped table-bordered mt-4">
   <thead class="table-dark">
     <tr>
+      <th scope="col">
+        <input type="checkbox" class="checkAll">
+      </th>
       <th scope="col">#</th>
       <th scope="col">ID</th>
       <th scope="col">Name</th>
@@ -29,6 +38,9 @@
       <% for(let i = 0; i < courses.length; i++) { %>
         <% const course = courses[i] %>
         <tr>
+          <td>
+            <input type="checkbox" name="check" data-id="<%=  course._id %>">
+          </td>
           <th scope="row"><%= i + 1 %></th>
           <td><%=  course._id %></td>
           <td><%= course.name %></td>
@@ -50,3 +62,5 @@
 
 <script src="/js/restoreCourse.js"></script>
 <script src="/js/forceCourse.js"></script>
+<script src="/js/checkboxCourse.js"></script>
+<script src="/js/forceCourseBySelect.js"></script>
