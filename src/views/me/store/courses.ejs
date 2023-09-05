@@ -34,19 +34,19 @@
       <th scope="col">#</th>
       <th scope="col">
         Name
-        <%- sortable('name', sort) %>
+        <%- sortable('name', sort, courses.length) %>
       </th>
       <th scope="col">
         Video ID
-        <%- sortable('videoId', sort) %>
+        <%- sortable('videoId', sort, courses.length) %>
       </th>
       <th scope="col">
         Image ID
-        <%- sortable('imageId', sort) %>
+        <%- sortable('imageId', sort, courses.length) %>
       </th>
       <th scope="col">
         Created At
-        <%- sortable('createdAt', sort) %>
+        <%- sortable('createdAt', sort, courses.length) %>
       </th>
       <th scope="col"></th>
     </tr>

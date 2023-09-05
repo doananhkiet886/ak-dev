@@ -1,7 +1,7 @@
 const makeSafeString = require('~/utils/makeSafeString')
 
 module.exports = {
-  sortable: (field, sort) => {
+  sortable: (field, sort, length = 1) => {
     const icons = {
       default: 'fa-solid fa-sort',
       asc: 'fa-solid fa-arrow-down-short-wide',
@@ -13,6 +13,11 @@ module.exports = {
       desc: 'default'
     }
     let icon, nextType, href
+    const isHidden = !length
+
+    if (isHidden) {
+      return ''
+    }
 
     // Fixed the bug that the total icon
     // changed simultaneously in sort
