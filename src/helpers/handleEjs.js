@@ -12,19 +12,27 @@ module.exports = {
       asc: 'desc',
       desc: 'default'
     }
-    const icon = icons[sort.type]
-    const nextType = nextTypes[sort.type]
+    let icon, nextType, href
 
-    if (nextType === 'default') {
-      const href = makeSafeString('?')
-      return `
-      <a class="text-light ms-3" href="${href}">
-      <i class="${icon}"></i>
-      </a>
-      `
+    // Fixed the bug that the total icon
+    // changed simultaneously in sort
+    if (field === sort.column) {
+      icon = icons[sort.type]
+      nextType = nextTypes[sort.type]
+    } else {
+      icon = icons['default']
+      nextType = nextTypes['default']
     }
 
-    const href = makeSafeString(`?_sort&column=${field}&type=${nextType}`)
+    if (nextType === 'default') {
+      href = makeSafeString('?')
+      return `
+        <a class="text-light ms-3" href="${href}">
+        <i class="${icon}"></i>
+        </a>
+      `
+    }
+    href = makeSafeString(`?_sort&column=${field}&type=${nextType}`)
     return `
       <a class="text-light ms-3" href="${href}">
         <i class="${icon}"></i>
