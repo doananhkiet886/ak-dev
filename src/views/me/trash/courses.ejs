@@ -38,7 +38,6 @@
         <% } %>
       </th>
       <th scope="col">#</th>
-      <th scope="col">ID</th>
       <th scope="col">
         Name
         <%- sortable('name', sort) %>
@@ -72,9 +71,9 @@
             ="check" data-id="<%=  course._id %>">
           </td>
           <th scope="row"><%= i + 1 %></th>
-          <td><%=  course._id %></td>
-          <td><%= course.name
-             %></td>
+          <td>
+            <%= course.name%>
+          </td>
           <td><%= course.videoId %></td>
           <td><%= course.imageId %></td>
           <td><%= moment(course.deletedAt).format('YYYY/MM/DD hh:mm:ss A')  %></td>
