@@ -33,10 +33,22 @@
       </th>
       <th scope="col">#</th>
       <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Video ID</th>
-      <th scope="col">Image ID</th>
-      <th scope="col">Create At</th>
+      <th scope="col">
+        Name
+        <%- sortable('name', sort) %>
+      </th>
+      <th scope="col">
+        Video ID
+        <%- sortable('videoId', sort) %>
+      </th>
+      <th scope="col">
+        Image ID
+        <%- sortable('imageId', sort) %>
+      </th>
+      <th scope="col">
+        Created At
+        <%- sortable('createdAt', sort) %>
+      </th>
       <th scope="col"></th>
     </tr>
   </thead>

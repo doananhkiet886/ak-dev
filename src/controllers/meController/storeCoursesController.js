@@ -1,22 +1,23 @@
 const Course = require('~/models/courseModel')
 const moment = require('moment')
+const { sortable } = require('~/helpers/handleEjs')
 
 // [GET] /me/store/courses
 const store = async (req, res) => {
   const searchValue = req.query.search
   const searchNameRegex = new RegExp(searchValue, 'giu')
   let courses = []
-  
+
   try {
     if (searchValue) {
       courses = await Course.find({
         name: searchNameRegex
-      })
+      }).sortable(req)
     } else {
-      courses = await Course.find()
+      courses = await Course.find().sortable(req)
     }
 
-    res.render('./me/store/courses', { courses, moment })
+    res.render('./me/store/courses', { courses, moment, sortable })
   } catch (error) {
     res.status(500).json({
       message: 'Error Server'
