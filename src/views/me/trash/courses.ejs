@@ -23,7 +23,8 @@
   </button>
 
   <div class="search-wrap ms-auto">
-    <input type="text" class="input-search form-control shadow-none" placeholder="Enter course name">
+    <input type="text" class="input-search form-control shadow-none" placeholder="Enter course name
+    ">
     <a class="btn-search btn btn-dark ms-2" href="/me/trash/courses">Search</a>
   </div>
 </div>
@@ -38,10 +39,22 @@
       </th>
       <th scope="col">#</th>
       <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Video ID</th>
-      <th scope="col">Image ID</th>
-      <th scope="col">Deleted At</th>
+      <th scope="col">
+        Name
+        <%- sortable('name', sort) %>
+      </th>
+      <th scope="col">
+        Video ID
+        <%- sortable('videoId', sort) %>
+      </th>
+      <th scope="col">
+        Image ID
+        <%- sortable('imageId', sort) %>
+      </th>
+      <th scope="col">
+        Deleted At
+        <%- sortable('deletedAt', sort) %>
+      </th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -55,11 +68,13 @@
         <% const course = courses[i] %>
         <tr>
           <td>
-            <input type="checkbox" name="check" data-id="<%=  course._id %>">
+            <input type="checkbox" name
+            ="check" data-id="<%=  course._id %>">
           </td>
           <th scope="row"><%= i + 1 %></th>
           <td><%=  course._id %></td>
-          <td><%= course.name %></td>
+          <td><%= course.name
+             %></td>
           <td><%= course.videoId %></td>
           <td><%= course.imageId %></td>
           <td><%= moment(course.deletedAt).format('YYYY/MM/DD hh:mm:ss A')  %></td>

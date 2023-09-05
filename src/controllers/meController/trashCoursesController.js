@@ -1,5 +1,6 @@
 const Course = require('~/models/courseModel')
 const moment = require('moment')
+const { sortable } = require('~/helpers/handleEjs')
 
 // [GET] /me/trash/courses
 const trashCourses = async (req, res) => {
@@ -12,11 +13,13 @@ const trashCourses = async (req, res) => {
       courses = await Course.findWithDeleted({
         name: searchNameRegex,
         deleted: true
-      })
+      }).sortable(req)
     } else {
-      courses = await Course.findWithDeleted({ deleted: true })
+      courses = await Course.findWithDeleted({
+        deleted: true
+      }).sortable(req)
     }
-    res.render('./me/trash/courses', { courses, moment })
+    res.render('./me/trash/courses', { courses, moment, sortable })
   } catch (error) {
     res.status(500).json({
       message: 'Error Server'
