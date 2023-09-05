@@ -4,8 +4,8 @@ module.exports = {
   sortable: (field, sort) => {
     const icons = {
       default: 'fa-solid fa-sort',
-      asc: 'fa-solid fa-sort-down',
-      desc: 'fa-solid fa-sort-up'
+      asc: 'fa-solid fa-arrow-down-short-wide',
+      desc: 'fa-solid fa-arrow-down-wide-short'
     }
     const nextTypes = {
       default: 'asc',
