@@ -21,3 +21,6 @@
 npm-debug.log*
 
 .env
+
+# file upload
+/src/public/upload

@@ -1,6 +1,7 @@
 const Course = require('~/models/courseModel')
 const moment = require('moment')
 const { sortable } = require('~/helpers/handleEjs')
+const path = require('path')
 
 // [GET] /me/store/courses
 const store = async (req, res) => {
@@ -45,11 +46,12 @@ const getCourseById = async (req, res) => {
 
 // [POST] /me/store/courses/create
 const createCourse = async (req, res) => {
-  const newCourse = req.body
+  const urls = req.file.path.split('/').splice(2)
+  const imgPath = path.join(...urls)
 
-  // default when imageId is empty
-  if (!newCourse.imageId) {
-    newCourse.imageId = newCourse.videoId
+  const newCourse = {
+    ...req.body,
+    img: imgPath
   }
 
   try {
@@ -60,6 +62,7 @@ const createCourse = async (req, res) => {
       message: 'Error Server'
     })
   }
+
 }
 
 // [PUT] /me/store/courses/edit/:id
