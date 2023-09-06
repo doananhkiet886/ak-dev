@@ -1,8 +1,6 @@
 const mongoose = require('mongoose')
 const mongooseDelete = require('mongoose-delete')
 
-const readPublicFile = require('~/utils/readPublicFile')
-
 const CourseSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -13,8 +11,8 @@ const CourseSchema = new mongoose.Schema({
     default: ''
   },
   img: {
-    type: Buffer,
-    default: readPublicFile('/img/default_course.jpg')
+    type: String,
+    default: '/img/default_course.jpg'
   },
   lessonOrderIds: {
     type: [String],
