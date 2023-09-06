@@ -1,7 +1,6 @@
 const Course = require('~/models/courseModel')
 const moment = require('moment')
 const { sortable } = require('~/helpers/handleEjs')
-const path = require('path')
 
 // [GET] /me/store/courses
 const store = async (req, res) => {
@@ -47,7 +46,7 @@ const getCourseById = async (req, res) => {
 // [POST] /me/store/courses/create
 const createCourse = async (req, res) => {
   const urls = req.file.path.split('/').splice(2)
-  const imgPath = path.join(...urls)
+  const imgPath = '/' + urls.join('/')
 
   const newCourse = {
     ...req.body,

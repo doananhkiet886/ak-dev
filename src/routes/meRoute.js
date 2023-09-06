@@ -3,7 +3,7 @@ const router = require('express').Router()
 const meController = require('~/controllers/meController')
 const uploadFileMiddleware = require('~/middlewares/uploadFileMiddleware')
 
-const uploadCourseImgMiddleware = uploadFileMiddleware('./src/public/upload/img/course').single('img')
+const uploadCourseImgMiddleware = uploadFileMiddleware('./src/public/upload/course').single('img')
 
 router.get('/store/courses', meController.store)
 router.get('/trash/courses', meController.trashCourses)
