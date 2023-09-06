@@ -26,7 +26,7 @@ const store = async (req, res) => {
 }
 
 // [GET] /me/store/courses/:id
-const getCourseById = async (req, res) => {
+const courseDetail = async (req, res) => {
   try {
     const course = await Course.findById(req.params.id)
     if (course) {
@@ -117,7 +117,7 @@ const removeCoursesBySelect = async (req, res) => {
 
 module.exports = {
   store,
-  getCourseById,
+  courseDetail,
   createCourse,
   editCourse,
   deleteCourse,

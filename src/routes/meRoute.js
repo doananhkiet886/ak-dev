@@ -7,7 +7,7 @@ const uploadCourseImgMiddleware = uploadFileMiddleware('./src/public/upload/cour
 
 router.get('/store/courses', meController.store)
 router.get('/trash/courses', meController.trashCourses)
-router.get('/store/courses/:id', meController.getCourseById)
+router.get('/store/courses/:id', meController.courseDetail)
 
 router.post('/store/courses/create', uploadCourseImgMiddleware, meController.createCourse)
 router.post('/trash/courses/restore/:id', meController.restoreCourse)

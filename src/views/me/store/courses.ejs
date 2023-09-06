@@ -18,7 +18,7 @@
   </button>
 
   <div class="search-wrap ms-auto">
-    <input type="text" class="input-search form-control shadow-none" placeholder="Enter course name">
+  <input type="text" class="input-search form-control shadow-none" placeholder="Enter course name">
     <a class="btn-search btn btn-dark ms-2" href="/me/store/courses">Search</a>
   </div>
 </div>
@@ -62,8 +62,22 @@
           <td><%= course.name %></td>
           <td><%= moment(course.createdAt).format('YYYY/MM/DD hh:mm:ss A')  %></td>
           <td class="col-200px text-center">
-            <button type="button" class="btn-edit btn btn-dark" data-id="<%=  course._id %>" data-bs-toggle="modal" data-bs-target="#edit-course-modal">Edit</button>
-            <button type="button" class="btn-remove btn btn-dark" data-id="<%=  course._id %>" data-bs-toggle="modal" data-bs-target="#confirm-edit-modal">Remove</button>
+            <a
+              type="button"
+              class="btn btn-dark"
+              href="/me/store/courses/<%= course._id %>"   
+            >
+              Detail
+            </a>
+            <button
+              type="button"
+              class="btn-remove btn btn-dark"
+              data-id="<%=  course._id %>"
+              data-bs-toggle="modal"
+              data-bs-target="#confirm-edit-modal"
+            >
+              Remove
+            </button>
           </td>
         </tr>
       <% } %>
@@ -72,10 +86,8 @@
 </table>
 
 <%- include('./addNewCourseModal.ejs') %>
-<%- include('./editCourseModal.ejs') %>
 <%- include('./confirmRemoveModal.ejs') %>
 
-<script src="/js/me/store/courses/edit.js"></script>
 <script src="/js/me/store/courses/remove.js"></script>
 <script src="/js/me/handleCheckboxCourse.js"></script>
 <script src="/js/me/store/courses/removeBySelect.js"></script>
